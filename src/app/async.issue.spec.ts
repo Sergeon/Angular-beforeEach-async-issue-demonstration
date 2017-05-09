@@ -10,4 +10,14 @@ describe('an async invocation inside jasmine beforeEach breaks async inside spec
       expect(false).toBe(true);
     } , 100 );
   }));
+
+  it('using done callbacks and get rid of async works as expected: this test fails' , done => {
+    setTimeout(() => {
+      expect('foo').toBe('bar');
+      done();
+    } , 1000);
+  });
+
 });
+
+
